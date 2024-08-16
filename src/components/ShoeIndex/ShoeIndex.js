@@ -27,22 +27,28 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <Spacer size={32} />
         <ShoeGrid />
       </Main>
-      <Nav>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
-        <AdditionalNavigation>
-          <Spacer size={42} />
-          <ShoeSidebar />
-        </AdditionalNavigation>
-      </Nav>
+
+      <DesktopNav>
+        <BreadcrumbsInIndex />
+        <Spacer size={42} />
+        <ShoeSidebar />
+      </DesktopNav>
+
+      <MobileNav>
+        <BreadcrumbsInIndex />
+      </MobileNav>
     </Wrapper>
   );
 };
+
+const BreadcrumbsInIndex = () =>
+  <Breadcrumbs>
+    <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale/shoes">
+      Shoes
+    </Breadcrumbs.Crumb>
+  </Breadcrumbs>
 
 const Wrapper = styled.div`
   display: flex;
@@ -56,11 +62,19 @@ const Wrapper = styled.div`
   }
 `;
 
-const Nav = styled.div`
+const DesktopNav = styled.div`
   flex-basis: 248px;
 
   @media ${QUERIES.tabletAndSmaller} {
-    flex-basis: 0;
+    display: none;
+  }
+`;
+
+const MobileNav = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: revert;
   }
 `;
 
@@ -77,12 +91,6 @@ const Header = styled.header`
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
-`;
-
-const AdditionalNavigation = styled.div`
-  @media ${QUERIES.tabletAndSmaller} {
-    display: none;
-  }
 `;
 
 export default ShoeIndex;
