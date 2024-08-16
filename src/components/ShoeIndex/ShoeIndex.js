@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { WEIGHTS } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 
 import Breadcrumbs from '../Breadcrumbs';
 import Select from '../Select';
@@ -12,48 +12,73 @@ import ShoeGrid from '../ShoeGrid';
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
-      <MainColumn>
+      <Main>
         <Header>
           <Title>Running</Title>
-          <Select
+          <SelectHiddenOnMobile
             label="Sort"
             value={sortId}
             onChange={(ev) => setSortId(ev.target.value)}
           >
             <option value="newest">Newest Releases</option>
             <option value="price">Price</option>
-          </Select>
+          </SelectHiddenOnMobile>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
-      </MainColumn>
-      <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
+      </Main>
+
+      <DesktopNav>
+        <BreadcrumbsInIndex />
         <Spacer size={42} />
         <ShoeSidebar />
-      </LeftColumn>
+      </DesktopNav>
+
+      <MobileNav>
+        <BreadcrumbsInIndex />
+      </MobileNav>
     </Wrapper>
   );
 };
+
+const BreadcrumbsInIndex = () =>
+  <Breadcrumbs>
+    <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale/shoes">
+      Shoes
+    </Breadcrumbs.Crumb>
+  </Breadcrumbs>
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    flex-direction: column-reverse;
+    gap: 0px;
+  }
 `;
 
-const LeftColumn = styled.div`
+const DesktopNav = styled.div`
   flex-basis: 248px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `;
 
-const MainColumn = styled.div`
+const MobileNav = styled.div`
+  display: none;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: revert;
+  }
+`;
+
+const Main = styled.div`
   flex: 1;
 `;
 
@@ -66,6 +91,12 @@ const Header = styled.header`
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+`;
+
+const SelectHiddenOnMobile = styled(Select)`
+  @media ${QUERIES.phoneAndSmaller} {
+    display: none;
+  }
 `;
 
 export default ShoeIndex;
