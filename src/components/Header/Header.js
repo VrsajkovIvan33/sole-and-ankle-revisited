@@ -5,6 +5,8 @@ import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -32,6 +34,19 @@ const Header = () => {
         <Side />
       </MainHeader>
 
+      <SmallScreenMainHeader>
+        <Logo />
+        <UnstyledButton>
+          <Icon id="shopping-bag" strokeWidth={2} />
+        </UnstyledButton>
+        <UnstyledButton>
+          <Icon id="search" strokeWidth={2} />
+        </UnstyledButton>
+        <UnstyledButton>
+          <Icon id="menu" strokeWidth={2} />
+        </UnstyledButton>
+      </SmallScreenMainHeader>
+
       <MobileMenu
         isOpen={showMobileMenu}
         onDismiss={() => setShowMobileMenu(false)}
@@ -48,7 +63,21 @@ const MainHeader = styled.div`
   border-bottom: 1px solid ${COLORS.gray[300]};
 
   @media ${QUERIES.tabletAndSmaller} {
-    border-top: 4px solid ${COLORS.gray[900]};
+    display: none;
+  }
+`;
+
+const SmallScreenMainHeader = styled.div`
+  display: none;
+
+  padding: 18px 32px;
+  height: 72px;
+  border-top: 4px solid ${COLORS.gray[900]};
+  border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: flex;
+    gap: 4vw;
   }
 
   @media ${QUERIES.phoneAndSmaller} {
