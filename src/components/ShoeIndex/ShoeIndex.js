@@ -15,14 +15,14 @@ const ShoeIndex = ({ sortId, setSortId }) => {
       <Main>
         <Header>
           <Title>Running</Title>
-          <Select
+          <SelectHiddenOnMobile
             label="Sort"
             value={sortId}
             onChange={(ev) => setSortId(ev.target.value)}
           >
             <option value="newest">Newest Releases</option>
             <option value="price">Price</option>
-          </Select>
+          </SelectHiddenOnMobile>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
@@ -91,6 +91,12 @@ const Header = styled.header`
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
+`;
+
+const SelectHiddenOnMobile = styled(Select)`
+  @media ${QUERIES.phoneAndSmaller} {
+    display: none;
+  }
 `;
 
 export default ShoeIndex;
