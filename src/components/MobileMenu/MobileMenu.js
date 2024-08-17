@@ -46,7 +46,7 @@ const Overlay = styled(DialogOverlay)`
   right: 0;
   bottom: 0;
 
-  background-color: hsl(220deg 5% 40% / 0.8);
+  background-color: hsl(var(--grey-700) / 0.8);
 `;
 
 const Content = styled(DialogContent)`
