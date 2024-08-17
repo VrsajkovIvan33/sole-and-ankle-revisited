@@ -32,9 +32,9 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         </DialogNav>
         <FlexFiller>
           <DialogFooter>
-            <a href="/terms">Terms and Conditions</a>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/contact">Contact Us</a>
+            <UtiliyLink href="/terms">Terms and Conditions</UtiliyLink>
+            <UtiliyLink href="/privacy">Privacy Policy</UtiliyLink>
+            <UtiliyLink href="/contact">Contact Us</UtiliyLink>
           </DialogFooter>
         </FlexFiller>
       </Content>
@@ -80,6 +80,7 @@ const DialogFooter = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  gap: 8px;
 `;
 
 const FlexFiller = styled.div`
@@ -101,7 +102,14 @@ const NavLink = styled.a`
 
   &: first-of-type {
     color: ${COLORS.secondary};
-}
+  }
+`;
+
+const UtiliyLink = styled.a`
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: ${COLORS.gray[700]};
+  font-weight: ${WEIGHTS.normal};
 `;
 
 export default MobileMenu;
