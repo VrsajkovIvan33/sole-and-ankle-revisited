@@ -10,10 +10,6 @@ import VisuallyHidden from '../VisuallyHidden';
 import { COLORS, WEIGHTS } from '../../constants';
 
 const MobileMenu = ({ isOpen, onDismiss }) => {
-  // if (!isOpen) {
-  //   return null;
-  // }
-
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
       <Content>
