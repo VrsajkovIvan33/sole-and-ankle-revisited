@@ -86,23 +86,23 @@ const SmallScreenMainHeader = styled.div`
 `;
 
 const Nav = styled.nav`
-display: flex;
-gap: 48px;
-margin: 0px 48px;
+  display: flex;
+  gap: 48px;
+  margin: 0px 48px;
 `;
 
 const Side = styled.div`
-flex: 1;
+  flex: 1;
 `;
 
 const NavLink = styled.a`
-font - size: 1.125rem;
-text - transform: uppercase;
-text - decoration: none;
-color: ${COLORS.gray[900]};
-font - weight: ${WEIGHTS.medium};
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: ${COLORS.gray[900]};
+  font-weight: ${WEIGHTS.medium};
 
-  &: first - of - type {
+  &: first-of-type {
   color: ${COLORS.secondary};
 }
 `;
