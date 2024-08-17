@@ -62,6 +62,8 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
+  overflow: scroll;
+
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
