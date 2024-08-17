@@ -18,6 +18,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
       <Content>
         <button onClick={onDismiss}>Dismiss menu</button>
+        <FlexFiller />
         <DialogNav>
           <a href="/sale">Sale</a>
           <a href="/new">New&nbsp;Releases</a>
@@ -26,35 +27,15 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
           <a href="/kids">Kids</a>
           <a href="/collections">Collections</a>
         </DialogNav>
-        <DialogFooter>
-          <a href="/terms">Terms and Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/contact">Contact Us</a>
-        </DialogFooter>
+        <FlexFiller>
+          <DialogFooter>
+            <a href="/terms">Terms and Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/contact">Contact Us</a>
+          </DialogFooter>
+        </FlexFiller>
       </Content>
     </Overlay >
-    // <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-    //   <Content aria-label="Menu">
-    //     <CloseButton onClick={onDismiss}>
-    //       <Icon id="close" />
-    //       <VisuallyHidden>Dismiss menu</VisuallyHidden>
-    //     </CloseButton>
-    //     <Filler />
-    //     <Nav>
-    //       <NavLink href="/sale">Sale</NavLink>
-    //       <NavLink href="/new">New&nbsp;Releases</NavLink>
-    //       <NavLink href="/men">Men</NavLink>
-    //       <NavLink href="/women">Women</NavLink>
-    //       <NavLink href="/kids">Kids</NavLink>
-    //       <NavLink href="/collections">Collections</NavLink>
-    //     </Nav>
-    //     <Footer>
-    //       <a href="/terms">Terms and Conditions</a>
-    //       <a href="/privacy">Privacy Policy</a>
-    //       <a href="/contact">Contact Us</a>
-    //     </Footer>
-    //   </Content>
-    // </Overlay>
   );
 };
 
@@ -78,6 +59,8 @@ const Content = styled(DialogContent)`
   flex-direction: column;
 
   background-color: white;
+
+  padding: 32px;
 `;
 
 const DialogNav = styled.nav`
@@ -86,8 +69,15 @@ const DialogNav = styled.nav`
 `;
 
 const DialogFooter = styled.footer`
+  height: 100%;
+  
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+`;
+
+const FlexFiller = styled.div`
+  flex: 1;
 `;
 
 export default MobileMenu;
