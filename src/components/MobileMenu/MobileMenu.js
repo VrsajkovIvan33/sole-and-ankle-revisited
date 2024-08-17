@@ -58,7 +58,7 @@ const Content = styled(DialogContent)`
   display: flex;
   flex-direction: column;
 
-  background-color: white;
+  background-color: ${COLORS.white};
 
   padding: 32px;
 `;
@@ -70,7 +70,7 @@ const DialogNav = styled.nav`
 
 const DialogFooter = styled.footer`
   height: 100%;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
