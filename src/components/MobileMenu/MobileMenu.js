@@ -17,7 +17,10 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
       <Content>
-        <button onClick={onDismiss}>Dismiss menu</button>
+        <CloseButton onClick={onDismiss}>
+          <Icon id={"close"} size={24} />
+          <VisuallyHidden>Dismiss menu</VisuallyHidden>
+        </CloseButton>
         <FlexFiller />
         <DialogNav>
           <a href="/sale">Sale</a>
@@ -61,6 +64,8 @@ const Content = styled(DialogContent)`
   background-color: ${COLORS.white};
 
   padding: 32px;
+
+  position: relative;
 `;
 
 const DialogNav = styled.nav`
@@ -78,6 +83,12 @@ const DialogFooter = styled.footer`
 
 const FlexFiller = styled.div`
   flex: 1;
+`;
+
+const CloseButton = styled(UnstyledButton)`
+  position: absolute;
+  top: 24px;
+  right: 16px;
 `;
 
 export default MobileMenu;
