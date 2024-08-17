@@ -71,6 +71,24 @@ html {
     Silence the warning about missing Reach Dialog styles
   */
   --reach-dialog: 1;
+
+  --white: 0deg 0% 100%;
+  --grey-100: 185deg 5% 95%;
+  --grey-300: 190deg 5% 80%;
+  --grey-500: 196deg 4% 60%;
+  --grey-700: 220deg 5% 40%;
+  --grey-900: 220deg 3% 20%;
+  --primary: 340deg 65% 47%;
+  --secondary: 240deg 60% 63%;
+
+  --color-white: hsl(var(--white));
+  --color-grey-100: hsl(var(--grey-100));
+  --color-grey-300: hsl(var(--grey-300));
+  --color-grey-500: hsl(var(--grey-500));
+  --color-grey-700: hsl(var(--grey-700));
+  --color-grey-900: hsl(var(--grey-900));
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
 }
 
 html, body, #root {
