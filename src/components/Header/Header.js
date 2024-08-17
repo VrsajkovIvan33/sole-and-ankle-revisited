@@ -62,6 +62,8 @@ const MainHeader = styled.div`
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
 
+  overflow: scroll;
+
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
@@ -87,7 +89,7 @@ const SmallScreenMainHeader = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1.5rem, 5vw - 1.5rem, 3rem);
   margin: 0px 48px;
 `;
 
