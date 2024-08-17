@@ -64,6 +64,13 @@ table {
     float above the app.
   */
   isolation: isolate;
+}
+
+html {
+  /*
+    Silence the warning about missing Reach Dialog styles
+  */
+  --reach-dialog: 1;
 
   --white: 0deg 0% 100%;
   --grey-100: 185deg 5% 95%;
@@ -82,13 +89,6 @@ table {
   --color-grey-900: hsl(var(--grey-900));
   --color-primary: hsl(var(--primary));
   --color-secondary: hsl(var(--secondary));
-}
-
-html {
-  /*
-    Silence the warning about missing Reach Dialog styles
-  */
-  --reach-dialog: 1;
 }
 
 html, body, #root {
