@@ -23,12 +23,12 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         </CloseButton>
         <FlexFiller />
         <DialogNav>
-          <a href="/sale">Sale</a>
-          <a href="/new">New&nbsp;Releases</a>
-          <a href="/men">Men</a>
-          <a href="/women">Women</a>
-          <a href="/kids">Kids</a>
-          <a href="/collections">Collections</a>
+          <NavLink href="/sale">Sale</NavLink>
+          <NavLink href="/new">New&nbsp;Releases</NavLink>
+          <NavLink href="/men">Men</NavLink>
+          <NavLink href="/women">Women</NavLink>
+          <NavLink href="/kids">Kids</NavLink>
+          <NavLink href="/collections">Collections</NavLink>
         </DialogNav>
         <FlexFiller>
           <DialogFooter>
@@ -71,6 +71,7 @@ const Content = styled(DialogContent)`
 const DialogNav = styled.nav`
   display: flex;
   flex-direction: column;
+  gap: 16px;
 `;
 
 const DialogFooter = styled.footer`
@@ -89,6 +90,18 @@ const CloseButton = styled(UnstyledButton)`
   position: absolute;
   top: 24px;
   right: 16px;
+`;
+
+const NavLink = styled.a`
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: ${COLORS.gray[900]};
+  font-weight: ${WEIGHTS.medium};
+
+  &: first-of-type {
+    color: ${COLORS.secondary};
+}
 `;
 
 export default MobileMenu;
